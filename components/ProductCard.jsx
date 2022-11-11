@@ -1,14 +1,12 @@
-// ./components/ProductCard.jsx
-
-import { useState, useEffect } from "react";
-
 import { Button, Card, Col, Row, Spacer, Text } from "@nextui-org/react";
-import Link from "next/link";
+import { useState, useEffect } from "react";
 import { useCart, useDispatchCart } from "../modules/AppContext";
 
-const ProductCard = ({ product }) => {
-  // console.log({ product });
+const Product = ({ product }) => {
+  //   const { images } = product;
   const { id, title, description, price, images } = product;
+
+  console.log("oy", { images });
 
   const cart = useCart();
   const setCart = useDispatchCart();
@@ -32,8 +30,6 @@ const ProductCard = ({ product }) => {
   useEffect(() => {
     checkIfAdded(product);
   }, []);
-
-  console.log({ cart });
 
   return (
     <Card isPressable variant="bordered" css={{ w: "100%", h: "500px" }}>
@@ -61,6 +57,7 @@ const ProductCard = ({ product }) => {
           <Col>
             <Row justify="space-between" align="top">
               <Col>
+                {isAdded}
                 <Text h3>{title}</Text>
                 <Text size={"$sm"}>{description}</Text>
               </Col>
@@ -85,7 +82,7 @@ const ProductCard = ({ product }) => {
               onClick={() => handleAddToCart(product)}
               css={{ w: "100%" }}
             >
-              {isAdded ? "Added to cart" : "Add to cart"}
+              {false ? "Added to cart" : "Add to cart"}
             </Button>
           </Col>
         </Row>
@@ -94,4 +91,4 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default Product;

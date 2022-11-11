@@ -22,7 +22,6 @@ export const getServerSideProps = async () => {
 };
 
 export default function Home({ products }) {
-
   return (
     <>
       <Head>
@@ -51,6 +50,7 @@ export default function Home({ products }) {
           </Container>
         </header>
         <Spacer y={2} />
+
         <Container lg>
           <Grid.Container gap={2}>
             {products.map((product) => (
