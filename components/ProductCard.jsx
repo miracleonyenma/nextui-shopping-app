@@ -1,41 +1,37 @@
-// ./components/ProductCard.jsx
-
-import { useState, useEffect } from "react";
-
 import { Button, Card, Col, Row, Spacer, Text } from "@nextui-org/react";
+import { useState, useEffect } from "react";
 import { useCart, useDispatchCart } from "../modules/AppContext";
 
-const ProductCard = ({ product }) => {
-  // // console.log({ product });
-  // const { id, title, description, price, images } = product;
+const Product = ({ product }) => {
+  //   const { images } = product;
+  const { id, title, description, price, images } = product;
 
-  // const cart = useCart();
-  // const setCart = useDispatchCart();
+  console.log("oy", { images });
 
-  // const [isAdded, setIsAdded] = useState(false);
+  const cart = useCart();
+  const setCart = useDispatchCart();
 
-  // const handleAddToCart = (product) => {
-  //   setCart({ type: "add", product });
-  //   setIsAdded(true);
-  // };
+  const [isAdded, setIsAdded] = useState(false);
 
-  // const checkIfAdded = (product) => {
-  //   const found = cart.find((item) => item.id === product.id);
-  //   if (found) {
-  //     setIsAdded(true);
-  //   } else {
-  //     setIsAdded(false);
-  //   }
-  // };
+  const handleAddToCart = (product) => {
+    setCart({ type: "add", product });
+    setIsAdded(true);
+  };
 
-  // useEffect(() => {
-  //   checkIfAdded(product);
-  // }, []);
+  const checkIfAdded = (product) => {
+    const found = cart.find((item) => item.id === product.id);
+    if (found) {
+      setIsAdded(true);
+    } else {
+      setIsAdded(false);
+    }
+  };
 
-  // console.log({ cart });
+  useEffect(() => {
+    checkIfAdded(product);
+  }, []);
 
   return (
-    // <></>
     <Card isPressable variant="bordered" css={{ w: "100%", h: "500px" }}>
       <Card.Body css={{ p: 0 }}>
         <Card.Image
@@ -61,6 +57,7 @@ const ProductCard = ({ product }) => {
           <Col>
             <Row justify="space-between" align="top">
               <Col>
+                {isAdded}
                 <Text h3>{title}</Text>
                 <Text size={"$sm"}>{description}</Text>
               </Col>
@@ -85,7 +82,7 @@ const ProductCard = ({ product }) => {
               onClick={() => handleAddToCart(product)}
               css={{ w: "100%" }}
             >
-              {isAdded ? "Added to cart" : "Add to cart"}
+              {false ? "Added to cart" : "Add to cart"}
             </Button>
           </Col>
         </Row>
@@ -94,4 +91,4 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+export default Product;

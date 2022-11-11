@@ -3,7 +3,6 @@
 import { Button, Card, Container, Grid, Spacer, Text } from "@nextui-org/react";
 import Head from "next/head";
 import ProductCard from "../components/ProductCard";
-import Product from "../components/Product";
 
 export const getServerSideProps = async () => {
   try {
@@ -56,8 +55,7 @@ export default function Home({ products }) {
           <Grid.Container gap={2}>
             {products.map((product) => (
               <Grid xs={12} sm={3} md={2.4} key={product.id}>
-                {/* <ProductCard product={product} /> */}
-                <Product product={product} />
+                <ProductCard product={product} />
               </Grid>
             ))}
           </Grid.Container>
