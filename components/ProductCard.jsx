@@ -3,39 +3,39 @@
 import { useState, useEffect } from "react";
 
 import { Button, Card, Col, Row, Spacer, Text } from "@nextui-org/react";
-import Link from "next/link";
 import { useCart, useDispatchCart } from "../modules/AppContext";
 
 const ProductCard = ({ product }) => {
-  // console.log({ product });
-  const { id, title, description, price, images } = product;
+  // // console.log({ product });
+  // const { id, title, description, price, images } = product;
 
-  const cart = useCart();
-  const setCart = useDispatchCart();
+  // const cart = useCart();
+  // const setCart = useDispatchCart();
 
-  const [isAdded, setIsAdded] = useState(false);
+  // const [isAdded, setIsAdded] = useState(false);
 
-  const handleAddToCart = (product) => {
-    setCart({ type: "add", product });
-    setIsAdded(true);
-  };
+  // const handleAddToCart = (product) => {
+  //   setCart({ type: "add", product });
+  //   setIsAdded(true);
+  // };
 
-  const checkIfAdded = (product) => {
-    const found = cart.find((item) => item.id === product.id);
-    if (found) {
-      setIsAdded(true);
-    } else {
-      setIsAdded(false);
-    }
-  };
+  // const checkIfAdded = (product) => {
+  //   const found = cart.find((item) => item.id === product.id);
+  //   if (found) {
+  //     setIsAdded(true);
+  //   } else {
+  //     setIsAdded(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    checkIfAdded(product);
-  }, []);
+  // useEffect(() => {
+  //   checkIfAdded(product);
+  // }, []);
 
-  console.log({ cart });
+  // console.log({ cart });
 
   return (
+    // <></>
     <Card isPressable variant="bordered" css={{ w: "100%", h: "500px" }}>
       <Card.Body css={{ p: 0 }}>
         <Card.Image

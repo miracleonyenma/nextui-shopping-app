@@ -23,13 +23,15 @@ const SiteHeader = () => {
       </Navbar.Brand>
 
       <Navbar.Content>
-        <Navbar.Link>
+        <Navbar.Item>
           <Badge color={"primary"} content={cart.length} variant="flat">
             <Button as={Link} href="/cart" auto css={{ padding: "$4" }} light>
+              {/* <Link href="/cart"> */}
               <ShoppingCartIcon width={24} />
+              {/* </Link> */}
             </Button>
           </Badge>
-        </Navbar.Link>
+        </Navbar.Item>
         <Navbar.Item>
           <Dropdown>
             <Dropdown.Trigger>
